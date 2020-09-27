@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
+import { ButtonProps } from './ButtonComponent';
+
+const dataBaru = [];
+for(let i=0; i<10; i++){
+    dataBaru.push({
+        key: i,
+        name: 'One',
+        usia: `Usia ke ${i}`
+    })
+}
 
 export default class List extends Component{
+    state = {nama: "Andry Bryan", data: []};
+
+    handleChange = () => {
+        this.setState({data: dataBaru});
+    }
+
     render(){
-        const {data} = this.props;
+        const {data} = this.state;
         return(
-            <ul>
-                {
-                    // this.props.data.map(item => (
-                    data.map(item => (
-                        <React.Fragment>
-                            <li>
-                                Nama: {item.name}, Usia: {item.age}{" "}
+            <div>
+                <ButtonProps nama="Tombol Ubah Data List" onClick={this.handleChange}/>
+                <ul>
+                    {
+                        data.map(item => (
+                            <li key={item.key}>
+                                Nama: {item.name}, Usia: {item.usia}{" "}
                             </li>
-                        </React.Fragment>
-                    ))
-                }
-            </ul>
+                        ))
+                    }
+                </ul>
+            </div>
         )
     }
 }
