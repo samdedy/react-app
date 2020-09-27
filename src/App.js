@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button, { ButtonDenganChildrenProps, ButtonProps } from './ButtonComponent';
+import Paragraph from './Paragraph';
 
 export default function App() {
   function onClickTombolQue(){
@@ -17,6 +18,9 @@ export default function App() {
         <ButtonDenganChildrenProps>
           <div>Test</div>
         </ButtonDenganChildrenProps>
+        <Paragraph nama="Santuy" jabatan="Gabut Manager">
+          <div>Children dari Paragraph Component</div>
+        </Paragraph>
       </header>
     </div>
   );
