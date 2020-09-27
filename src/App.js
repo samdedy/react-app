@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Button, { ButtonDenganChildrenProps, ButtonProps } from './ButtonComponent';
 import Paragraph from './Paragraph';
+import List from './List';
 
 export default function App() {
+  const data = [{name: "Onesinus SPT", age:22}, {name: "Melendoy", age: 23}];
   function onClickTombolQue(){
     console.log("tombol que diklik");
   }
@@ -21,6 +23,7 @@ export default function App() {
         <Paragraph nama="Santuy" jabatan="Gabut Manager">
           <div>Children dari Paragraph Component</div>
         </Paragraph>
+        <List data={data}/>
       </header>
     </div>
   );
