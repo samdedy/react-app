@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button, { ButtonDenganChildrenProps, ButtonProps } from './ButtonComponent';
 
 export default function App() {
   function onClickTombolQue(){
@@ -13,6 +14,9 @@ export default function App() {
         <HelloClass/>
         <Button/>
         <ButtonProps nama="TombolQue" color="green" onClick={onClickTombolQue}/>
+        <ButtonDenganChildrenProps>
+          <div>Test</div>
+        </ButtonDenganChildrenProps>
       </header>
     </div>
   );
@@ -51,31 +55,4 @@ class HelloClass extends Component {
       </div>
     );
   }
-}
-
-function Button(){
-  const style = {
-    padding: "5px 10px",
-    color: "red",
-    border: "solid 2px red"
-  }
-  return <button style={style}>Test Button</button>
-}
-
-function ButtonProps(props){
-const style = {
-  padding: "5px 10px",
-  color: props.color,
-  border: 'solid 2px ${props.color}'
-}
-return <button style={style} onClick={props.onClick}>{props.nama}</button>
-}
-
-function ButtonDenganChildrenProps(props){
-const style = {
-  padding: "5px 10px",
-  color: props.color,
-  border: 'solid 2px ${props.color}'
-}
-return <button style={style}>{props.children}</button>
 }
