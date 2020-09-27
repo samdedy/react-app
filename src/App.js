@@ -1,9 +1,9 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button, { ButtonDenganChildrenProps, ButtonProps } from './ButtonComponent';
-import Paragraph from './Paragraph';
-import List from './List';
+import Button, { ButtonDenganChildrenProps, ButtonProps } from './shared-component/ButtonComponent';
+import Paragraph from './shared-component/Paragraph';
+import List from './shared-component/List';
 
 export default function App() {
   const data = [{name: "Onesinus SPT", age:22}, {name: "Melendoy", age: 23}];
