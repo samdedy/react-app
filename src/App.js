@@ -5,11 +5,28 @@ import Button, { ButtonDenganChildrenProps, ButtonProps } from './shared-compone
 import Paragraph from './shared-component/Paragraph';
 import List from './shared-component/List';
 
+const dataBaru = [];
+for(let i=0; i<10; i++){
+    dataBaru.push({
+        key: i,
+        name: 'One',
+        usia: `Usia ke ${i}`
+    })
+}
+
 export default function App() {
   const data = [{name: "Onesinus SPT", age:22}, {name: "Melendoy", age: 23}];
+
+  const [dataList, setdataList] = useState([]);
+
   function onClickTombolQue(){
     console.log("tombol que diklik");
   }
+
+  function handleChange() {
+    setdataList(dataBaru);
+  } 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -23,7 +40,8 @@ export default function App() {
         <Paragraph nama="Santuy" jabatan="Gabut Manager">
           <div>Children dari Paragraph Component</div>
         </Paragraph>
-        <List data={data}/>
+        <ButtonProps nama="Tombol Ubah Data List" onClick={handleChange}/>
+        <List data={dataList}/>
       </header>
     </div>
   );
