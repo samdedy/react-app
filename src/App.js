@@ -5,6 +5,7 @@ import Button, { ButtonDenganChildrenProps, ButtonProps } from './shared-compone
 import Paragraph from './shared-component/Paragraph';
 import List from './shared-component/List';
 import Input from './shared-component/Input';
+import Form from './shared-component/Form';
 
 const dataBaru = [];
 for(let i=0; i<10; i++){
@@ -21,6 +22,8 @@ export default function App() {
   const [dataList, setdataList] = useState([]);
 
   const [valueInput, setvalueInput] = useState("User belum melakukan input");
+
+  const [arrForm, setArrForm] = useState({});
 
   function onClickTombolQue(){
     console.log("tombol que diklik");
@@ -57,6 +60,16 @@ export default function App() {
   //   }
   // }
 
+  function onClickBtnSimpan(){
+    console.log(arrForm);
+  }
+
+  function onChangeFormInput(field, e){
+    let dataForm = arrForm;
+    dataForm[field] = e.target.value;
+    setArrForm(dataForm);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -74,6 +87,16 @@ export default function App() {
         <List data={dataList}/>
         <Input onChange={onChangeInput} onKeyDown={onEnterInput}/>
         <p>{valueInput}</p>
+        <Form>
+          <label>Nama</label>
+          <Input onChange={(e) => onChangeFormInput("nama", e)}/>
+          <label>Jabatan</label>
+          <Input onChange={(e) => onChangeFormInput("jabatan", e)}/>
+          <label>Usia</label>
+          <Input onChange={(e) => onChangeFormInput("usia", e)}/>
+          <ButtonProps nama="Simpan" color="blue" onClick={onClickBtnSimpan}/>
+          <p>Data dari form</p>
+        </Form>
       </header>
     </div>
   );
