@@ -10,22 +10,26 @@ function Button(){
 }
 
 function ButtonProps(props){
-const style = {
-    padding: "5px 10px",
-    color: props.color,
-    border: 'solid 2px ${props.color}'
-}
-return <button style={style} onClick={props.onClick}>{props.nama}</button>
+    const style = {
+        padding: "5px 10px",
+        color: props.color,
+        border: 'solid 2px ${props.color}'
+    }
+    return <button style={style} onClick={props.onClick}>{props.nama}</button>
 }
 
 function ButtonDenganChildrenProps(props){
-const style = {
-    padding: "5px 10px",
-    color: props.color,
-    border: 'solid 2px ${props.color}'
+    const style = {
+        padding: "5px 10px",
+        color: props.color,
+        border: 'solid 2px ${props.color}'
+    }
+    return <button style={style}>{props.children}</button>
 }
-return <button style={style}>{props.children}</button>
+
+function ButtonWithObjectProps(props){
+    return <button style={props.style}>{props.name}</button>
 }
 
 export default Button;
-export {ButtonProps, ButtonDenganChildrenProps}
+export {ButtonProps, ButtonDenganChildrenProps, ButtonWithObjectProps}

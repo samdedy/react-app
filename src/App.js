@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button, { ButtonDenganChildrenProps, ButtonProps } from './shared-component/ButtonComponent';
+import Button, { ButtonDenganChildrenProps, ButtonProps, ButtonWithObjectProps } from './shared-component/ButtonComponent';
 import Paragraph from './shared-component/Paragraph';
 import List from './shared-component/List';
 import Input from './shared-component/Input';
@@ -97,6 +97,9 @@ export default function App() {
           <ButtonProps nama="Simpan" color="blue" onClick={onClickBtnSimpan}/>
           <p>Data dari form</p>
         </Form>
+        <ButtonWithObjectProps name="Add" style={{color: "blue", height: "50px"}}/>
+        <ButtonWithObjectProps name="Edit" style={{color: "red", height: "40px"}}/>
+        <ButtonWithObjectProps name="Delete" style={{color: "green", height: "30px"}}/>
       </header>
     </div>
   );
