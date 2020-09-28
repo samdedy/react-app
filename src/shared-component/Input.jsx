@@ -7,6 +7,6 @@ export default function Input(props){
     }
 
     return(
-        <input style={styleInput} onChange={props.onChange}/>
+        <input style={styleInput} onChange={props.onChange} onKeyDown={props.onKeyDown}/>
     )
 }

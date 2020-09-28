@@ -35,6 +35,28 @@ export default function App() {
     setvalueInput(e.target.value);
   }
 
+  function onEnterInput(e){// add ke akhir data
+    if(e.key == "Enter"){
+      let gabunganData = dataList.concat([{
+        key: dataList.length + 1,
+        name: e.target.value,
+        usia: `Usia ke ${dataList.length + 1}`
+      }]);
+      setdataList(gabunganData);
+    }
+  }
+
+  // function onEnterInput(e){ // add ke data pertama
+  //   if(e.key == "Enter"){
+  //     let gabunganData = [{
+  //       key: dataList.length + 1,
+  //       name: e.target.value,
+  //       usia: `Usia ke ${dataList.length + 1}`
+  //     }].concat(dataList);
+  //     setdataList(gabunganData);
+  //   }
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -50,7 +72,7 @@ export default function App() {
         </Paragraph>
         <ButtonProps nama="Tombol Ubah Data List" onClick={handleChange}/>
         <List data={dataList}/>
-        <Input onChange={onChangeInput}/>
+        <Input onChange={onChangeInput} onKeyDown={onEnterInput}/>
         <p>{valueInput}</p>
       </header>
     </div>
