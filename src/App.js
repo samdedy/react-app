@@ -4,6 +4,7 @@ import './App.css';
 import Button, { ButtonDenganChildrenProps, ButtonProps } from './shared-component/ButtonComponent';
 import Paragraph from './shared-component/Paragraph';
 import List from './shared-component/List';
+import Input from './shared-component/Input';
 
 const dataBaru = [];
 for(let i=0; i<10; i++){
@@ -19,6 +20,8 @@ export default function App() {
 
   const [dataList, setdataList] = useState([]);
 
+  const [valueInput, setvalueInput] = useState("User belum melakukan input");
+
   function onClickTombolQue(){
     console.log("tombol que diklik");
   }
@@ -26,6 +29,11 @@ export default function App() {
   function handleChange() {
     setdataList(dataBaru);
   } 
+
+  function onChangeInput(e){
+    console.log(e.target.value);
+    setvalueInput(e.target.value);
+  }
 
   return (
     <div className="App">
@@ -42,6 +50,8 @@ export default function App() {
         </Paragraph>
         <ButtonProps nama="Tombol Ubah Data List" onClick={handleChange}/>
         <List data={dataList}/>
+        <Input onChange={onChangeInput}/>
+        <p>{valueInput}</p>
       </header>
     </div>
   );
