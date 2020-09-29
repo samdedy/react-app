@@ -12,14 +12,22 @@ for(let i=0; i<10; i++){
     dataBaru.push({
         key: i,
         name: 'One',
-        usia: `Usia ke ${i}`
+        usia: `Usia ke ${i}`,
+        hoby: 'Mandi'
     })
 }
 
 export default function App() {
   const data = [{name: "Onesinus SPT", age:22}, {name: "Melendoy", age: 23}];
 
-  const [dataList, setdataList] = useState([]);
+  const [dataList, setdataList] = useState([
+      {
+        key: -1,
+        name: "Santuy",
+        usia: 76,
+        hoby: "Mancing Keributan"
+      }
+  ]);
 
   const [valueInput, setvalueInput] = useState("User belum melakukan input");
 
