@@ -1,0 +1,15 @@
+.btn{
+    border: 3px solid purple;
+}
+
+.btn_add{
+    color: green;
+}
+
+.btn_edit{
+    color: blue;
+}
+
+.btn_delete{
+    color: yellow;
+}
