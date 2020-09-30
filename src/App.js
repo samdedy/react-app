@@ -6,6 +6,7 @@ import Paragraph from './shared-component/Paragraph';
 import List from './shared-component/List';
 import Input from './shared-component/Input';
 import Form from './shared-component/Form';
+import Axios from 'axios';
 
 const dataBaru = [];
 for(let i=0; i<10; i++){
@@ -47,7 +48,7 @@ export default function App() {
   }
 
   function onEnterInput(e){// add ke akhir data
-    if(e.key == "Enter"){
+    if(e.key === "Enter"){
       let gabunganData = dataList.concat([{
         key: dataList.length + 1,
         name: e.target.value,
@@ -68,8 +69,14 @@ export default function App() {
   //   }
   // }
 
+  async function postData(arrForm){
+    let response = await Axios.post("http://localhost:5001/api/postData", arrForm);
+    console.log("response",response);
+  }
+
   function onClickBtnSimpan(){
-    console.log(arrForm);
+    console.log("arrForm",arrForm);
+    postData(arrForm);
   }
 
   function onChangeFormInput(field, e){
@@ -102,6 +109,10 @@ export default function App() {
           <Input onChange={(e) => onChangeFormInput("jabatan", e)}/>
           <label>Usia</label>
           <Input onChange={(e) => onChangeFormInput("usia", e)}/>
+          <label>Tempat Lahir</label>
+          <Input onChange={(e) => onChangeFormInput("tempat_lahir", e)}/>
+          <label>Tanggal Lahir</label>
+          <Input onChange={(e) => onChangeFormInput("tanggal_lahir", e)}/>
           <ButtonProps nama="Simpan" color="blue" onClick={onClickBtnSimpan}/>
           <p>Data dari form</p>
         </Form>
